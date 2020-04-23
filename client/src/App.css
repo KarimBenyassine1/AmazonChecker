@@ -1,63 +1,89 @@
+@import url('https://fonts.googleapis.com/css?family=Arimo&display=swap');
+
 *{
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    outline: none;
+    font-family: 'Arimo', sans-serif;
 }
 
 h1{
+    color: white;
     text-align: center;
-    font-family: "Trebuchet MS", Helvetica, sans-serif;
-}
-
-p{
-    text-align: center;
-    font-family: "Trebuchet MS", Helvetica, sans-serif;
-    position: relative;
 }
 
 .background{
     height: 100vh;
-    background: rgb(234,240,4);
-    background:linear-gradient(180deg, rgba(234,240,4,1) 0%, rgb(255, 183, 0) 100%);
+    background: #fed000;
 } 
 
-.amazon{
-    position: relative;
-    top:21px;
+.wrapper{
+    position: absolute;
+    top: 30%;
+    width: 100%;
+    padding: 0 20px;
 }
 
-button{
+.btn{
+    display: inline-block;
+    padding:0.35em 1.2em;
+    border:0.1em solid #FFFFFF;
+    border-radius:0.22em;
+    box-sizing: border-box;
+    text-decoration:none;
+    background-color:#fed000;
+    color: white;
     position: relative;
-    display: block;
+    left: 200px;
+    top: 10px;
+    font-weight:1000;
+    width: 100px;
+    font-size: 20px;
+    text-align:center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+.btn:hover{
+    background-color:white;
+    color: #fed000
+}
+
+form{
+    background: rgb(0,0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    border-radius: 5px;
+    display:flex;
+}
+
+.inputfields {
+    position: relative;
+    display:flex;
+    flex-direction: column;
+    width: 500px;
     margin: 0 auto;
-    border:0.1em solid orange;
-    font-size:17px;
-    font-family: "Trebuchet MS", Helvetica, sans-serif;
-    transition: all 0.3s ease 0s;
-    top: 20px;
-
+    height: 40px;
+    border-radius: 5px;
 }
-button:hover{
-    background-color:orange;
+
+.input{
+    margin: 15px 0;
+    background: transparent;
+    border: 0;
+    font-size: 20px;
+    font-weight: 1000;
+    border-bottom: 3px solid white;
+    padding: 10px;
+    color: white;
+    width: 100%
+}
+
+::-ms-input-placeholder{
     color:white;
 }
 
-.labels{
-    font-family: "Trebuchet MS", Helvetica, sans-serif;
-    position:relative;
-    top:20px;
-}
-
-
-
-input{
-    position: relative;
-    display: block;
-    margin: 0 auto;
-    padding: 3px;
-}
-
-.divider{
-    position: relative;
-    top: 3px;
+::-webkit-input-placeholder{
+    color:white;
 }

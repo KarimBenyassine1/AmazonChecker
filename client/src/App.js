@@ -19,7 +19,7 @@ class App extends React.Component {
   
 
   handleChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
+    this.setState({ [event.target.name]: event.target.value }); 
   }
 
   handleSubmit = (event) =>{
@@ -40,23 +40,24 @@ class App extends React.Component {
 }
   render(){
     return (
-      <div className="background">
-          <h1><span className="amazon"></span> Amazon Price Checker</h1>
-          <p>This app will send you an email when the price of a product goes down. Click the button below!</p>   
+      <body className="background">
+        <div className="wrapper">
+          <h1>The Amazon Price Tracker</h1>
+        <div className="form">
           <form
           onSubmit={this.handleSubmit} 
           name="myForm" 
           id='myForm'>
-                    <p> Enter Your Information Here: </p>
-                    <p1 className="labels"> Email: </p1>
-                      <input  value={this.state.email} onChange={this.handleChange} type="email" name='email' id="user" placeholder="Example@gmail.com" required/>
-                    <p1 className="labels"> Url:  </p1>
-                      <input type="url" value={this.state.url} onChange={this.handleChange} name='url' id="url" placeholder="amazon.com" required/>
-                    <p1 className="labels">Minimum Price:</p1>
-                      <input value={this.state.price} onChange={this.handleChange} id="price" name='price' placeholder="10.00" required/>
-                    <button type="submit" id='submitButton'>Submit</button>
-          </form>   
-      </div>
+            <div className='inputfields'>
+              <input className='input' value={this.state.email} onChange={this.handleChange} type="email" name='email' id="user" placeholder="Email" required/>
+              <input className='input' type="url" value={this.state.url} onChange={this.handleChange} name='url' id="url" placeholder="Url" required/>
+              <input className='input' value={this.state.price} onChange={this.handleChange} id="price" name='price' placeholder="Minimum Price" required/>
+              <button type="submit" className='btn'>Send</button> 
+            </div> 
+          </form>
+          </div>
+        </div>   
+      </body>
     );
   }
 }
