@@ -37,7 +37,7 @@ app.post('/', async (req, res) => {
 })
 
 mongoose.connect(
-    'mongodb+srv://SaimandKarim:kb1sa2@cluster0-msyzd.mongodb.net/test?retryWrites=true&w=majority',
+    '',
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,
