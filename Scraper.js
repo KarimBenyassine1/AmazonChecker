@@ -51,7 +51,6 @@ async function sendNotification(price, adminLogin, adminPwd, userInfo) {
             pass: String(adminPwd)
 
             //user: "saimm.ahmadd@gmail.com",
-            // pass: "%sach123"
         }
     });
 
