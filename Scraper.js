@@ -3,6 +3,7 @@ const $ = require('cheerio');
 const CronJob = require('cron').CronJob;
 const nodemailer = require('nodemailer');
 const axios = require('axios');
+require('dotenv').config();
 
 //const url = 'https://www.amazon.com/Mechanical-Keyboard-Bluetooth-Wireless-Multi-Device/dp/B07FZVCH4H/ref=sr_1_1?dchild=1&keywords=60%25+mechanical+keyboard&qid=1587615183&sr=8-1';
 
@@ -47,11 +48,13 @@ async function sendNotification(price, adminLogin, adminPwd, userInfo) {
     let transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: String(adminLogin),
-            pass: String(adminPwd)
+            //user: String(adminLogin),
+            //pass: String(adminPwd)
+
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PASSWORD,
 
             //user: "saimm.ahmadd@gmail.com",
-            // pass: "%sach123"
         }
     });
 
@@ -69,7 +72,7 @@ async function sendNotification(price, adminLogin, adminPwd, userInfo) {
     console.log("Message sent: %s", info.messageId);
     console.log(userInfo._id);
 
-    let url = "http://localhost:5000/info/" + userInfo._id
+    let url = "http://localhost:6000/info/" + userInfo._id
     console.log(url);
     axios.delete(url)
         .then(res => {

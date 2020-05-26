@@ -6,8 +6,7 @@ const cors = require('cors')
 const scraper = require('./Scraper');
 const Info = require('./models/Info')
 const axios = require('axios');
-
-require('dotenv').config()
+require('dotenv').config();
 
 app.use(cors());
 const bodyParser = require('body-parser');
@@ -37,13 +36,14 @@ app.post('/', async (req, res) => {
 })
 
 mongoose.connect(
-    '',
+    process.env.DB_URI,
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,
     }).then(() => console.log('Connected to DB'))
     .catch(err => {
         console.log('DBConnectionError');
+        console.log(err);
     })
 
 
@@ -54,7 +54,7 @@ app.listen(port, (error) => {
 
     console.log(`Amazon app listening on port ${port}!`)
     
-    axios.get("http://localhost:5000/info")
+    axios.get("http://localhost:6000/info")
         .then(res => {
             //console.log(res.data);
             console.log("retrieved information for scraper file");
