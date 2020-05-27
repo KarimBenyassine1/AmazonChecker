@@ -31,7 +31,7 @@ class App extends React.Component {
         minPrice: this.state.price
     }
 
-    axios.post("http://localhost:6000/info", obj)
+    axios.post("http://localhost:5000/info", obj)
     .then(res=>{
         console.log(res);
         alert("Success!")

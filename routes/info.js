@@ -3,7 +3,9 @@ const router = express.Router()
 const Info = require('../models/Info')
 const mongoose = require('mongoose')
 
-//GETS ALL DATA
+/**
+ * This function gets all of the amazon requests stored in the database
+ */
 router.get('/', async (req, res) => {
     try {
         const data = await Info.find();
@@ -14,7 +16,10 @@ router.get('/', async (req, res) => {
 })
 
 
-//POSTS DATA
+
+/**
+ * This function will post a new item someone requests into the database
+ */
 router.post('/', async (req, res) => {
     console.log(req.body)
     const info = new Info({
@@ -32,16 +37,23 @@ router.post('/', async (req, res) => {
 
 })
 
+
+/**
+ * this function will delete an item from the database based on its id
+ */
 router.delete('/:id', (req, res, next) => {
     Info.findByIdAndRemove({ _id: req.params.id })
         .then(function (info) {
             res.send(info)
+        })
+        .catch(err => {
+            console.log(err)
         });
-
-    console.log("deleted");
 })
 
-//GETS DATA FOR A SPECIFIC ID
+/**
+ * this function returns all the data of one item from the database based on its id
+ */
 router.get("/:infoId", (req, res, next) => {
     const id = req.params.infoId;
     Info.findById(id)

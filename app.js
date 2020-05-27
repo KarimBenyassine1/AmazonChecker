@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 6000
+const port = 5000
 const mongoose = require('mongoose')
 const cors = require('cors')
 const scraper = require('./Scraper');
@@ -54,17 +54,21 @@ app.listen(port, (error) => {
 
     console.log(`Amazon app listening on port ${port}!`)
     
-    axios.get("http://localhost:6000/info")
+    scraper.startTracking();
+
+    /*
+    axios.get("http://localhost:5000/info")
         .then(res => {
             //console.log(res.data);
             console.log("retrieved information for scraper file");
 
             for(var i = 0; i < res.data.length; i++){
-                let url = res.data[i].url;
-                scraper.startTracking(process.env.emailLogin, process.env.emailPassword, res.data[i]);
+                scraper.startTracking(res.data[i]);
             }
         })
         .catch(err => console.log(err));
+        */
+    
 
    // scraper.startTracking(process.env.emailLogin, process.env.emailPassword);
 })
